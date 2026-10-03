@@ -1,0 +1,69 @@
+<!-- AI Sales Assistant -->
+<section class="ai-assistance">
+
+  <!-- AI Header -->
+  <div class="ai-assistance-header">
+    <div class="ai-assistance-title">
+      <div class="ai-assistance-icon">
+        <i class="fa-solid fa-robot"></i>
+      </div>
+      <div>
+        <h2>AI Sales Assistant</h2>
+        <p>Your intelligent assistant for POS analytics</p>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <!-- Clear Chat Button -->
+      <button id="clearChatBtn" class="clear-chat-btn" style="background: #ff4d4f; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 13px;">
+        <i class="fa-solid fa-trash"></i> Clear Chat
+      </button>
+
+      <span class="ai-status">
+        <span class="status-dot"></span>
+        AI Ready
+      </span>
+    </div>
+  </div>
+
+  <!-- Chat Area -->
+  <div class="ai-chat-container" id="aiChatContainer">
+    <!-- AI Welcome Message -->
+    <div class="ai-message">
+      <div class="ai-avatar">
+        <i class="fa-solid fa-robot"></i>
+      </div>
+      <div class="ai-message-content">
+        <div class="ai-message-name">AI Assistant</div>
+        <div class="ai-bubble">
+          Hello! 👋<br><br>
+          I'm your POS AI Assistant.<br>
+          You can ask me about sales, profit, customers, products and inventory.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Questions -->
+  <div class="ai-quick-questions">
+    <button class="ai-quick-btn" data-question="How are my sales today?">📊 Today's Sales</button>
+    <button class="ai-quick-btn" data-question="What are my best selling products?">🏆 Best Products</button>
+    <button class="ai-quick-btn" data-question="Which products have low quantity?">📦 Low Stock</button>
+    <button class="ai-quick-btn" data-question="How can I increase my profit?">💰 Profit Advice</button>
+  </div>
+
+  <!-- Input Area -->
+  <div class="ai-input-container">
+    <input type="text" id="aiMessageInput" placeholder="Ask something about your store..." autocomplete="off" />
+    <button id="aiSendButton">
+      <i class="fa-solid fa-paper-plane"></i> Send
+    </button>
+  </div>
+
+  <!-- Small Info -->
+  <div class="ai-footer">
+    <i class="fa-solid fa-circle-info"></i>
+    AI responses will be based on your POS data.
+  </div>
+
+</section>

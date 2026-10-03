@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POS System Dashboard</title>
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pos.css">
+    <link rel="stylesheet" href="css/inventory.css">
+    <link rel="stylesheet" href="css/totalSell.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reports.css">
+    <link rel="stylesheet" href="css/support.css">
+    <link rel="stylesheet" href="css/assistance.css">
+    <link rel="stylesheet" href="css/admin.css"> 
+    <link rel="stylesheet" href="css/document.css">
+    <!-- FontAwesome Icons ချိတ်ဆက်ရန် -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  </head>
+  <body>
+    <!-- Main Content အစတွင် ထည့်ရန် -->
+<div class="mobile-header"> 
+  <button class="menu-toggle-btn" id="menuToggleBtn">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+  <h2 style="font-size: 18px;">POS System</h2>
+</div>
+    <aside id="sidebar">
+      <div class="user-profile">
+        <div class="avatar-container">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="user-name" id="userName">User Name</div>
+        <div class="user-role" id="userRole">Store Manager</div>
+      </div>
+    <ul class="nav-menu">
+        <li class="nav-item" data-roles="admin,manager">
+          <a href="#" class="nav-link" data-page="dashboard-home.html">
+            <i class="fa-solid fa-house"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item" data-roles="admin">
+          <a href="#" class="nav-link" data-page="accounts.html">
+            <i class="fa-solid fa-user-gear"></i> Accounts
+          </a>
+        </li>
+        <li class="nav-item" data-roles="sales,admin,manager">
+          <a href="#" class="nav-link" data-page="pc.html">
+            <i class="fa-solid fa-chart-line"></i> Sales Update
+          </a>
+        </li>
+        <li class="nav-item" data-roles="admin,manager,sales">
+          <a href="#" class="nav-link" data-page="inventory.html">
+            <i class="fa-solid fa-box"></i> Inventory
+          </a>
+        </li>
+        <li class="nav-item" data-roles="admin,manager">
+          <a href="#" class="nav-link" data-page="reports.html">
+            <i class="fa-solid fa-file-invoice"></i> Reports
+          </a>
+        </li>
+        <li class="nav-item" data-roles="admin,manager,sales">
+          <a href="#" class="nav-link" data-page="document.html">
+            <i class="fa-solid fa-folder-open"></i> Documents
+          </a>
+        </li>
+        <li class="nav-item" data-roles="admin,manager,sales">
+          <a href="#" class="nav-link" data-page="support.html">
+            <i class="fa-solid fa-headset"></i> Support
+          </a>
+        </li>
+        <li class="nav-item" data-roles="admin,manager">
+          <a href="#" class="nav-link" data-page="admin_settings.html">
+            <i class="fa-solid fa-sliders"></i>Store Setting
+          </a>
+        </li>
+        <li class="nav-item" data-roles="admin,manager">
+          <a href="#" class="nav-link" data-page="assistance.html">
+            <i class="fa-solid fa-microchip"></i>Ai-Assistance
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" id="logoutbtn">
+            <i class="fa-solid fa-right-from-bracket" style="margin-right: 8px;"></i>Logout
+          </a>
+        </li> 
+      </ul>
+    </ul>
+    </aside>
+
+    <main id="main-content">
+
+    <!-- </header> -->
+
+    </main>
+
+
+    <script src="js/pc-pos.js"></script>
+    <script src="js/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/inventory.js"></script>
+    <script src="js/admin_settings.js"></script>
+    <script src="js/dashboard.js" defer></script>
+    <script src="js/reports.js"></script>
+    <script src="js/support.js"></script>
+    <script src="js/assistance.js"></script>
+    <script src="js/dashboard-home.js"></script>
+<script>
+  const menuBtn = document.getElementById('menuToggleBtn');
+  const sidebar = document.getElementById('sidebar');
+
+  // ၁။ မျဉ်း ၃ ချောင်း ခလုတ်နှိပ်လျှင် အဖွင့်အပိတ် လုပ်ရန်
+  if (menuBtn && sidebar) {
+    menuBtn.addEventListener('click', (e) => {
+      sidebar.classList.toggle('show-menu');
+      e.stopPropagation(); // Event ပျံ့နှံ့မှုကို တားဆီးရန်
+    });
+  }
+
+  // ၂။ Sidebar အပြင်ဘက်ကို နှိပ်လိုက်လျှင် Sidebar ပြန်ပိတ်သွားစေရန်
+  document.addEventListener('click', (e) => {
+    if (sidebar && sidebar.classList.contains('show-menu')) {
+      // နှိပ်လိုက်သော နေရာသည် Sidebar လည်းမဟုတ်၊ Menu ခလုတ်လည်း မဟုတ်လျှင်
+      if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+        sidebar.classList.remove('show-menu');
+      }
+    }
+  });
+
+  // ၃။ Menu Link တစ်ခုခုကို နှိပ်လိုက်လျှင်လည်း Sidebar ပြန်ပိတ်သွားစေရန်
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 1024) {
+        sidebar.classList.remove('show-menu');
+      }
+    });
+  });
+</script>
+  </body>
+</html>

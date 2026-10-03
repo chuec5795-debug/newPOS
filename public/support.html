@@ -1,0 +1,115 @@
+  <div class="dashboard-container">
+    <!-- 2. Right Main Content Area (Support View) -->
+    <main class="main-content">
+      
+      <!-- Top Header -->
+      <div class="hero">
+        <div class="hero-subtitle">Help Center</div>
+        <h1 class="hero-title">How can we help?</h1>
+        <p class="hero-desc">Search our guides for Store POS, Inventory, and Account details.</p>
+
+        <!-- Rounded Search Box -->
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" class="search-input" onkeyup="searchFAQ()" placeholder="Ask or search anything...">
+        </div>
+
+        <!-- Quick Tags -->
+        <div class="quick-tags">
+          <span>Common questions:</span>
+          <button class="tag-btn" onclick="quickSearch('QR Code')">QR Receipt</button>
+          <button class="tag-btn" onclick="quickSearch('Barcode')">Barcode Scan</button>
+          <button class="tag-btn" onclick="quickSearch('Stock')">Low Stock Alert</button>
+          <button class="tag-btn" onclick="quickSearch('Login')">Login Issues</button>
+        </div>
+      </div>
+
+      <!-- FAQ Content Grid -->
+      <h2 class="section-title">New to Store POS System? Start here</h2>
+
+      <div class="faq-grid" id="faqGrid">
+
+        <div class="faq-card">
+          <div class="card-header">
+            <span class="card-num">1</span>
+            <h3 class="card-title">How do I process sales & scan barcodes?</h3>
+          </div>
+          <p class="card-desc">Use the Sales tab. Scan item barcodes with your hardware scanner or manually search products by name to add them to the cart.</p>
+        </div>
+
+        <div class="faq-card">
+          <div class="card-header">
+            <span class="card-num">2</span>
+            <h3 class="card-title">How does the Digital QR Receipt work?</h3>
+          </div>
+          <p class="card-desc">After completing a checkout, a digital QR code is generated on screen for the customer to scan with their phone camera to view their bill.</p>
+        </div>
+
+        <div class="faq-card">
+          <div class="card-header">
+            <span class="card-num">3</span>
+            <h3 class="card-title">How to manage & update Inventory stock?</h3>
+          </div>
+          <p class="card-desc">Managers can navigate to the Inventory section to add new items, update prices, or restock quantities stored in LocalStorage.</p>
+        </div>
+
+        <div class="faq-card">
+          <div class="card-header">
+            <span class="card-num">4</span>
+            <h3 class="card-title">Where can I see Low Stock Alerts?</h3>
+          </div>
+          <p class="card-desc">When an item quantity falls below the minimum limit, a warning badge appears in the Dashboard and Low Stock section automatically.</p>
+        </div>
+
+        <div class="faq-card">
+          <div class="card-header">
+            <span class="card-num">5</span>
+            <h3 class="card-title">Login and User Role Access details</h3>
+          </div>
+          <p class="card-desc">Admin accounts can create Cashier and Manager roles. Ensure correct credentials and role selection when logging into the system.</p>
+        </div>
+
+        <div class="faq-card">
+          <div class="card-header">
+            <span class="card-num">6</span>
+            <h3 class="card-title">How do I add or manage user accounts?</h3>
+          </div>
+          <p class="card-desc">Admins and Managers can navigate to Account Management (accounts.html) from the sidebar to create new accounts by providing an email address, password, and selecting a role (Sales, Manager, or Admin). Existing user permissions and accounts can also be reviewed or removed from this page.</p>
+        </div>
+
+        <div class="faq-card">
+          <div class="card-header">
+            <span class="card-num">7</span>
+            <h3 class="card-title">How do customers access their digital receipts?</h3>
+          </div>
+          <p class="card-desc">Upon clicking "Finish & Get Digital Receipt", the system converts the transaction data into a Base64-encoded string parameter and generates a QR code. Customers can scan the QR code using their phone camera to open and view their digital receipt page (receipt.html).</p>
+        </div>
+
+        <div class="faq-card">
+          <div class="card-header">
+            <span class="card-num">8</span>
+            <h3 class="card-title">How is stock quantity updated during a transaction?</h3>
+          </div>
+          <p class="card-desc">When a transaction is completed, the system automatically subtracts the purchased item quantities from the total available inventory saved in local storage (myInventory)</p>
+        </div>
+
+        <div class="faq-card">
+          <div class="card-header">
+            <span class="card-num">9</span>
+            <h3 class="card-title">What payment methods are supported at checkout?</h3>
+          </div>
+          <p class="card-desc">
+            1. Cash <br>
+            2. KBZPay/Mobile Wallet <br>
+            3. Wavepay <br>
+            4. Credit/Debit Card
+          </p>
+        </div>
+
+        <div class="faq-card">
+          <div class="card-header">
+            <span class="card-num">10</span>
+            <h3 class="card-title">How does the Cashier POS Terminal work for scanning items?</h3>
+          </div>
+          <p class="card-desc">Cashiers can scan item barcodes using a physical scanner. The system detects the barcode input, prompts for the desired quantity, checks if sufficient inventory is available, and adds the product to the active cart.</p>
+        </div>

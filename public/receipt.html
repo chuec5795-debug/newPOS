@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Receipt</title>
+    <link rel="stylesheet" href="css/receipt.css" />
+
+    <!-- html2canvas Library for Image Downloading -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Receipt Card Wrapper -->
+    <div class="receipt-card" id="receiptCard">
+        <!-- Header Section -->
+        <div class="store-header">
+            <h1 class="store-name">🛒 Tun's Mart</h1>
+            <p class="receipt-date" id="receiptDate">Loading...</p>
+        </div>
+
+        <!-- Items Table -->
+        <table class="item-list">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th style="text-align: center;">Qty</th>
+                    <th style="text-align: right;">Price</th>
+                </tr>
+            </thead>
+            <tbody id="receiptItems">
+                <!-- Dynamic JavaScript Items -->
+            </tbody>
+        </table>
+
+        <!-- Totals Summary Section (Fully Dynamic) -->
+        <div class="totals">
+            <p>
+                <span id="subtotalLabel">Subtotal:</span> 
+                <span id="receiptSubtotal">0.00 Ks</span>
+            </p>
+            <p>
+                <span id="discountLabel">Discount:</span> 
+                <span id="receiptDiscount">-0.00 Ks</span>
+            </p>
+            <p>
+                <span id="taxLabel">Commercial Tax:</span> 
+                <span id="receiptTax">0.00 Ks</span>
+            </p>
+        </div>
+
+        <!-- Grand Total Callout Box -->
+        <div class="total-section">
+            <span class="total-title">Grand Total</span>
+            <span class="total-amount" id="receiptTotal">0.00 Ks</span>
+        </div>
+
+        <!-- Footer Note -->
+        <div class="thank-you">
+            <p>❤️ Thank you for shopping with us!</p>
+            <p>Keep this digital receipt for your records.</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="receipt-actions" id="actionButtons">
+            <button class="btn-download" onclick="downloadReceiptImage()">📥 Save Image (PNG)</button>
+            <button class="btn-print" onclick="window.print()">🖨️ Print</button>
+        </div>
+    </div>
+
+    <script src="js/receipt.js"></script>
+
+</body>
+
+</html>

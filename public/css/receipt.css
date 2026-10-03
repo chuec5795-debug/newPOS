@@ -1,0 +1,227 @@
+/* --- Page Base & Centering --- */ 
+body { 
+    font-family: sans-serif; 
+    background-color: #f4f6f9; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    margin: 0; 
+    padding: 20px; 
+    box-sizing: border-box; 
+} 
+ 
+/* --- Receipt Card Wrapper --- */ 
+.receipt-card { 
+    background-color: #FFF8C9; 
+    padding: 25px; 
+    border-radius: 16px; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); 
+    width: 100%; 
+    max-width: 380px; 
+} 
+ 
+/* --- Header Section --- */ 
+.store-header { 
+    text-align: center; 
+    border-bottom: 2px dashed #e2e8f0; 
+    padding-bottom: 15px; 
+    margin-bottom: 20px; 
+} 
+ 
+.store-name { 
+    font-size: 22px; 
+    font-weight: bold; 
+    color: #2d3748; 
+    margin: 0; 
+} 
+ 
+.receipt-date { 
+    font-size: 13px; 
+    color: #718096; 
+    margin-top: 5px; 
+} 
+ 
+/* --- Items Table --- */ 
+.item-list { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-bottom: 20px; 
+} 
+ 
+.item-list th { 
+    text-align: left; 
+    color: #2d3748; 
+    font-size: 12px; 
+    text-transform: uppercase; 
+    padding-bottom: 8px; 
+} 
+ 
+.item-list td { 
+    padding: 10px 0; 
+    font-size: 14px; 
+    color: #2d3748; /* High-contrast readable color */ 
+    border-bottom: 1px solid #edf2f7; 
+} 
+ 
+/* --- Totals Summary Section (Subtotal, Discount, Tax) --- */ 
+.totals { 
+    border-top: 2px dashed #e2e8f0; 
+    padding-top: 15px; 
+    margin-bottom: 15px; 
+} 
+ 
+.totals p { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    font-size: 14px; 
+    color: #4a5568; 
+    margin: 6px 0; 
+} 
+ 
+.totals span { 
+    font-weight: 600; 
+    color: #2d3748; 
+} 
+ 
+/* Red color highlight for discount */ 
+#receiptDiscount { 
+    color: #e53e3e; 
+} 
+ 
+/* --- Grand Total Callout Box --- */ 
+.total-section { 
+    background-color: #FCFBF4; 
+    padding: 15px; 
+    border-radius: 8px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 20px; 
+} 
+ 
+.total-title { 
+    font-size: 16px; 
+    font-weight: bold; 
+    color: #4a5568; 
+} 
+ 
+.total-amount { 
+    font-size: 20px; 
+    font-weight: bold; 
+    color: #2b6cb0; 
+} 
+ 
+/* --- Footer Note --- */ 
+.thank-you { 
+    text-align: center; 
+    font-size: 13px; 
+    color: #718096; 
+} 
+ 
+ 
+/* --- Download & Print Buttons --- */ 
+.receipt-actions { 
+display: flex; 
+gap: 10px; 
+margin-top: 20px; 
+justify-content: center; 
+} 
+ 
+.btn-download, .btn-print { 
+padding: 10px 16px; 
+font-size: 14px; 
+font-weight: bold; 
+border: none; 
+border-radius: 8px; 
+cursor: pointer; 
+transition: background-color 0.2s ease; 
+float: none; /* Override floating default from main CSS */ 
+margin: 0; 
+} 
+ 
+.btn-download { 
+background-color: #3182ce; 
+color: #ffffff; 
+} 
+ 
+.btn-download:hover { 
+background-color: #2b6cb0; 
+} 
+ 
+.btn-print { 
+background-color: #4a5568; 
+color: #ffffff; 
+} 
+ 
+.btn-print:hover { 
+background-color: #2d3748; 
+} 
+ 
+ 
+ 
+/* Layout alignment for exact screenshot capturing */ 
+.receipt-card { 
+width: 100%; 
+max-width: 380px; 
+margin: 0 auto; 
+padding: 24px; 
+background: #ffffff; 
+border-radius: 12px; 
+box-sizing: border-box; 
+} 
+ 
+.totals p { 
+display: flex; 
+ustify-content: space-between; 
+margin: 8px 0; 
+} 
+ 
+.total-section { 
+display: flex; 
+justify-content: space-between; 
+align-items: center; 
+padding: 12px 0; 
+border-top: 1px dashed #cbd5e0; 
+margin-top: 12px; 
+}  
+ 
+/* --- Fixes & Dynamic Label Enhancements --- */ 
+ 
+/* Fix typo in totals paragraph flex layout */ 
+.totals p { 
+    display: flex; 
+    justify-content: space-between; /* Fixes 'ustify-content' typo */ 
+    align-items: center; 
+    margin: 8px 0; 
+} 
+ 
+/* Ensure dynamic label text styles cleanly */ 
+.totals span:first-child { 
+    font-weight: normal; 
+    color: #4a5568; 
+} 
+ 
+.totals span:last-child { 
+    font-weight: 600; 
+    color: #2d3748; 
+} 
+ 
+/* Keep red highlight on discount value */ 
+#receiptDiscount { 
+    color: #e53e3e; 
+} 
+ 
+/* Hide action buttons when printing directly from browser */ 
+@media print { 
+    .receipt-actions {display: none !important; 
+    } 
+    body { 
+        background: #ffffff; 
+        padding: 0; 
+    } 
+    .receipt-card { 
+        box-shadow: none; 
+    } 
+}

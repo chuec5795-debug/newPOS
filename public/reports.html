@@ -1,0 +1,53 @@
+<div class="reports-container">
+    <div class="reports-header">
+        <div class="header-title">
+            <h2><i class="fa-solid fa-chart-pie"></i> အရောင်းစာရင်းနှင့် သုံးသပ်ချက်များ</h2>
+            <p>အရောင်းဆိုင်ရာ အချက်အလက်များနှင့် ငွေကြေးစုစုပေါင်း အကျဉ်းချုပ်</p>
+        </div>
+
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="reports-stats-grid">
+        <div class="stat-card revenue-card">
+            <div class="stat-icon">
+                <i class="fa-solid fa-money-bill-wave"></i>
+            </div>
+            <div class="stat-details">
+                <h3>စုစုပေါင်း ရောင်းရငွေ</h3>
+                <p id="total-revenue-val">0 ကျပ်</p>
+            </div>
+        </div>
+        
+        <div class="stat-card invoice-card">
+            <div class="stat-icon">
+                <i class="fa-solid fa-receipt"></i>
+            </div>
+            <div class="stat-details">
+                <h3>စုစုပေါင်း ဘောက်ချာ</h3>
+                <p id="total-invoices-val">0</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Table Section -->
+    <div class="reports-table-card">
+        <div class="table-header-flex">
+            <h3><i class="fa-solid fa-list-check"></i> အရောင်း အသေးစိတ်ဇယား</h3>
+        </div>
+        <div class="table-responsive">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Cashier </th>
+                        <th>အချိန် (Timestamp)</th>
+                        <th>ကျသင့်ငွေ</th>
+                    </tr>
+                </thead>
+                <tbody id="reports-table-body">
+                    <!-- Dynamic Data from LocalStorage will load here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

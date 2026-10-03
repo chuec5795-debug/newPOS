@@ -1,0 +1,304 @@
+/* ==============================================================
+   AI Sales Assistant - Fully Responsive & Professional UI
+============================================================== */
+
+:root {
+  --ai-primary: #0a7cff;
+  --ai-primary-hover: #0062cc;
+  --ai-bg-main: #f9fafb;
+  --ai-card-bg: #ffffff;
+  --ai-text-dark: #1f2937;
+  --ai-text-muted: #6b7280;
+  --ai-border: #e5e7eb;
+  --ai-danger: #ef4444;
+  --ai-success: #10b981;
+}
+
+/* Main Container - Responsive Height & Width */
+.ai-assistance {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  width: 100%;
+  max-width: 900px;
+  margin: 10px auto;
+  background: var(--ai-card-bg);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: min(700px, calc(100vh - 20px)); /* Mobile တွင် Screen အပြည့်နှင့် Monitor တွင် max 700px */
+  overflow: hidden;
+  border: 1px solid var(--ai-border);
+  box-sizing: border-box;
+}
+
+/* Header Section */
+.ai-assistance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--ai-card-bg);
+  border-bottom: 1px solid var(--ai-border);
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ai-assistance-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ai-assistance-icon {
+  width: 42px;
+  height: 42px;
+  background: #e0f2fe;
+  color: var(--ai-primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.ai-assistance-title h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--ai-text-dark);
+  font-weight: 700;
+}
+
+.ai-assistance-title p {
+  margin: 2px 0 0 0;
+  font-size: 0.8rem;
+  color: var(--ai-text-muted);
+}
+
+.clear-chat-btn {
+  background: #fee2e2 !important;
+  color: var(--ai-danger) !important;
+  border: 1px solid #fecaca !important;
+  padding: 6px 12px !important;
+  border-radius: 8px !important;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.clear-chat-btn:hover {
+  background: var(--ai-danger) !important;
+  color: white !important;
+}
+
+.ai-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ai-success);
+  background: #ecfdf5;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #d1fae5;
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--ai-success);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Chat Area */
+.ai-chat-container {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background: var(--ai-bg-main);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ai-chat-container::-webkit-scrollbar { width: 5px; }
+.ai-chat-container::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.ai-message {
+  animation: messageFadeIn 0.3s ease-out;
+}
+
+@keyframes messageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ai-avatar {
+  width: 34px;
+  height: 34px;
+  background: #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ai-text-muted);
+  flex-shrink: 0;
+}
+
+.ai-bubble {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  word-break: break-word; /* စာကြောင်းရှည်များ Card ပြင်ပထွက်မသွားစေရန် */
+}
+
+/* Quick Questions Area */
+.ai-quick-questions {
+  padding: 10px 16px;
+  background: var(--ai-card-bg);
+  border-top: 1px solid var(--ai-border);
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.ai-quick-questions::-webkit-scrollbar { display: none; }
+
+.ai-quick-btn {
+  background: var(--ai-card-bg);
+  border: 1px solid var(--ai-border);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ai-text-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ai-quick-btn:hover {
+  background: #f0f7ff;
+  border-color: #bae6fd;
+  color: var(--ai-primary);
+}
+
+/* Input Area */
+.ai-input-container {
+  padding: 12px 16px;
+  background: var(--ai-card-bg);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border-top: 1px solid var(--ai-border);
+}
+
+#aiMessageInput {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid var(--ai-border);
+  border-radius: 24px;
+  font-size: 0.9rem;
+  outline: none;
+  background: var(--ai-bg-main);
+  transition: all 0.2s ease;
+  min-width: 0; /* Flexbox overflow ကာကွယ်ရန် */
+}
+
+#aiMessageInput:focus {
+  border-color: var(--ai-primary);
+  background: var(--ai-card-bg);
+  box-shadow: 0 0 0 3px rgba(10, 124, 255, 0.1);
+}
+
+#aiSendButton {
+  background: var(--ai-primary);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+#aiSendButton:hover {
+  background: var(--ai-primary-hover);
+}
+
+#aiSendButton:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Footer Section */
+.ai-footer {
+  text-align: center;
+  padding: 8px 12px 12px 12px;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  background: var(--ai-card-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Mobile Devices (<600px) Breakdown */
+@media screen and (max-width: 600px) {
+  .ai-assistance {
+    margin: 0;
+    border-radius: 0;
+    height: 100vh;
+    border: none;
+  }
+
+  .ai-assistance-header {
+    padding: 12px 14px;
+  }
+
+  .ai-assistance-title p {
+    display: none; /* ဖုန်းမျက်နှာပြင်တွင် စာကြောင်းရှည်မဖြစ်စေရန် Subtitle ခေတ္တဖျောက်ထားခြင်း */
+  }
+
+  .ai-assistance-title h2 {
+    font-size: 0.95rem;
+  }
+
+  .ai-chat-container {
+    padding: 12px;
+  }
+
+  .ai-input-container {
+    padding: 10px 12px;
+  }
+
+  #aiSendButton {
+    padding: 12px 14px;
+  }
+}

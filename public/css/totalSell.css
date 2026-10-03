@@ -1,0 +1,274 @@
+.top-products-card {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+  margin-top: 24px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.card-header .subtitle {
+  margin: 4px 0 0 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.view-btn {
+  background: #f1f5f9;
+  color: #2563eb;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-btn:hover {
+  background: #e2e8f0;
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rank-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #f1f5f9;
+  transition: all 0.2s ease;
+}
+
+.rank-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+}
+
+.rank-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 15px;
+  background: #e2e8f0;
+  color: #475569;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+/* Top 3 Badges Gradient Accent */
+.rank-1 .rank-badge {
+  background: linear-gradient(135deg, #fef08a 0%, #eab308 100%);
+  color: #854d0e;
+  box-shadow: 0 4px 10px rgba(234, 179, 8, 0.25);
+}
+
+.rank-2 .rank-badge {
+  background: linear-gradient(135deg, #f1f5f9 0%, #94a3b8 100%);
+  color: #1e293b;
+  box-shadow: 0 4px 10px rgba(148, 163, 184, 0.25);
+}
+
+.rank-3 .rank-badge {
+  background: linear-gradient(135deg, #ffedd5 0%, #f97316 100%);
+  color: #7c2d12;
+  box-shadow: 0 4px 10px rgba(249, 115, 22, 0.25);
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.product-sub {
+  display: block;
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.sales-metric {
+  text-align: right;
+}
+
+.sold-count {
+  display: inline-block;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  margin-bottom: 2px;
+}
+
+.revenue {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+/* Modal Overlay (နောက်ခံ မှောင်ပေးသည့် ဒီဇိုင်း) */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Active ဖြစ်လျှင် ပေါ်လာမည် */
+.modal-overlay.active {
+  display: flex;
+}
+
+/* Popup Window Box */
+.modal-content {
+  background-color: #ffffff;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.close-modal-btn {
+  font-size: 24px;
+  font-weight: bold;
+  color: #94a3b8;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.close-modal-btn:hover {
+  color: #0f172a;
+}
+
+/* Item စာရင်းအများကြီးဖြစ်ပါက Scroll ဆွဲလို့ရစေရန် */
+.modal-body {
+  padding: 20px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.low-stock-card {
+  background: gainsboro;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+  margin-top: 24px;
+}
+
+.alert-count-badge {
+  background: #fee2e2;
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.low-stock-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stock-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.stock-item:hover {
+  background: #feebc8;
+  border-color: #fbd38d;
+}
+
+.stock-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #9b2c2c;
+}
+
+.stock-sub {
+  display: block;
+  font-size: 11px;
+  color: #c53030;
+  margin-top: 2px;
+}
+
+.stock-qty-badge {
+  background: #e53e3e;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+}

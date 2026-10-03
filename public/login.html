@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    
+    <div class="card">
+ 
+        <div class="form-section">
+            <h1 class="title">Sign In</h1>
+
+            <form id="loginform">
+                <div class="emailform">   
+                    <label>Email: <span class="star">*</span></label>    
+                    <input id="email" type="email" placeholder="Enter Email" required>    
+                </div>
+
+                <div class="passwordform">
+                    <div class="label-container">
+                        <label>Password: <span class="star">*</span></label>
+                        <a href="forgotpassword.html" id="forgotpasswordbtn">Forgot Password?</a>
+                    </div>
+
+                    <div class="password-group">
+                        <input id="password" type="password" placeholder="Enter Password" required>
+                    </div>
+                </div>
+
+                <div class="role-group">
+                    <label class="role-option">
+                        <input type="radio" name="role" value="admin" checked>
+                        <span>Admin</span>
+                    </label>
+          
+                    <label class="role-option">
+                        <input type="radio" name="role" value="sales">
+                        <span>Sales</span>
+                    </label>
+          
+                    <label class="role-option">
+                        <input type="radio" name="role" value="manager">
+                        <span>Manager</span>
+                    </label>
+                </div>
+
+                <div class="login-btn">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="img-section">
+            <img src="IMG/Firefly.png" alt="POS Illustration">
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

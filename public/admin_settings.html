@@ -1,0 +1,59 @@
+
+
+<div class="container">
+  <h2>Store Settings</h2>
+
+  <!-- Section 1: Tax Rate Setting -->
+  <div class="card">
+    <h3>Tax Configuration</h3>
+    <div class="form-group">
+      <label for="storeTaxRate">Default Tax Rate (%)</label>
+      <input type="number" id="storeTaxRate" placeholder="e.g. 5" min="0" step="0.1">
+    </div>
+    <button class="btn btn-primary" onclick="saveTaxRate()">Save Tax Rate</button>
+  </div>
+
+  <!-- Section 2: Profit Margin / Sale Price Percent Setting -->
+  <div class="card">
+    <h3>Profit Margin Configuration</h3>
+    <div class="form-group">
+      <label for="storeProfitMargin">Default Sale Price Profit Margin (%)</label>
+      <input type="number" id="storeProfitMargin" placeholder="e.g. 15" min="0" step="0.1">
+    </div>
+    <button class="btn btn-primary" onclick="saveProfitMargin()">Save Profit Margin</button>
+  </div>
+
+  <!-- Section 3: Discount Presets -->
+  <div class="card">
+    <h3>Discount Presets</h3>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="discountName">Discount Title</label>
+        <input type="text" id="discountName" placeholder="e.g. Spent Over 50,000 Ks">
+      </div>
+      <div class="form-group">
+        <label for="discountMinAmount">Min Spent Amount (Ks)</label>
+        <input type="number" id="discountMinAmount" placeholder="e.g. 50000" min="0">
+      </div>
+      <div class="form-group">
+        <label for="discountRate">Rate (%)</label>
+        <input type="number" id="discountRate" placeholder="e.g. 10" min="0" step="0.1">
+      </div>
+    </div>
+    
+    <button class="btn btn-success" onclick="addDiscountPreset()">Add Preset</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Min Amount</th>
+          <th>Rate</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="presetTableBody"></tbody>
+    </table>
+  </div>
+</div>

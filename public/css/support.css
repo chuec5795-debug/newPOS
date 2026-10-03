@@ -1,0 +1,137 @@
+
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero-subtitle {
+  font-size: 11px;
+  color: #888888;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.hero-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #111111;
+  margin-bottom: 8px;
+}
+
+.hero-desc {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 24px;
+}
+
+/* Search Bar */
+.search-wrapper {
+  position: relative;
+  width: 500px;
+  margin: 0 auto 16px auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 20px 12px 40px !important;
+  font-size: 14px;
+  border: 1px solid #e2e2e2;
+  border-radius: 30px;
+  background-color: #fafafa;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  color: #999999;
+  font-size: 13px;
+}
+
+/* Quick Tags */
+.quick-tags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #777777;
+}
+
+.tag-btn {
+  padding: 4px 12px;
+  border: 1px solid #ebebeb;
+  border-radius: 20px;
+  background: #ffffff;
+  color: #444444;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.tag-btn:hover {
+  background: #f4f4f4;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #111111;
+}
+
+/* Grid Cards Section */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.faq-card {
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+  padding: 20px;
+  background: #ffffff;
+  position:relative ;
+}
+
+.re-card:hover {
+  border-color: #cccccc;
+}
+
+/* Card Content Header */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.card-num {
+  font-size: 12px;
+  font-weight: bold;
+  color: #a0a0a0;
+  position: absolute;
+  top: 0;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #222222;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: #666666;
+  padding-left: 24px;
+}
+
+/* No Search Result Message */
+.no-result {
+  text-align: center;
+  padding: 30px;
+  color: #888888;
+  display: none;
+  font-size: 14px;
+}

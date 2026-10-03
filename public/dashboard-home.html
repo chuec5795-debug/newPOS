@@ -1,0 +1,83 @@
+<!-- KPI Cards Container -->
+<div class="dashboard-body" id="dashboardBody">
+  <div class="kpi-container">
+    <div class="kpi-card">
+      <div class="kpi-icon blue"><i class="fa-solid fa-chart-line"></i></div>
+      <div class="kpi-info">
+        <h3>Total Sales</h3>
+        <p id="totalSales">0 Ks</p>
+      </div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-icon green"><i class="fa-solid fa-wallet"></i></div>
+      <div class="kpi-info">
+        <h3>Total Profit</h3>
+        <p id="totalProfit">0 Ks</p>
+      </div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-icon orange"><i class="fa-solid fa-users"></i></div>
+      <div class="kpi-info">
+        <h3>Total Customers</h3>
+        <p id="totalCustomers">0</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="dashboard-overview">
+  <h2 style="margin-bottom: 20px">Sales Analytics & Daily Transactions</h2>
+  <div class="charts-wrapper">
+    <div class="chart-container">
+      <h3>Sales by Category</h3>
+      <canvas id="categorySalesChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <h3>Daily Sales Overview</h3>
+      <canvas id="dailySalesChart"></canvas>
+    </div>
+  </div>
+</div>
+<div class="top-products-card">
+  <div class="card-header">
+    <div>
+      <h3>Top Selling Products</h3>
+      <p class="subtitle">Best performing items this month</p>
+    </div>
+    <button class="view-btn">View All</button>
+  </div>
+
+  <!-- JavaScript မှ Dynamic Render လုပ်မည့် နေရာ -->
+  <div class="leaderboard-list" id="topProductsContainer">
+    <!-- Dynamic Items will appear here -->
+  </div>
+</div>
+<!-- Top Selling Products Modal Window -->
+<div id="topProductsModal" class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div>
+        <h3>All Top Selling Products</h3>
+        <p class="subtitle" style="margin: 4px 0 0 0; font-size: 12px; color: #64748b;">Complete sales ranking</p>
+      </div>
+      <span class="close-modal-btn" id="closeTopProductsModal">&times;</span>
+    </div>
+    <div class="modal-body leaderboard-list" id="modalProductsContainer">
+      <!-- အကုန်လုံးကို JavaScript မှ ရေးဆွဲပြသပေးမည် -->
+    </div>
+  </div>
+</div>
+<div class="low-stock-card">
+  <div class="card-header">
+    <div>
+      <h3>Low Stock Alerts</h3>
+      <p class="subtitle">Items that need to be reordered soon</p>
+    </div>
+    <span class="alert-count-badge" id="lowStockCount">0 Items</span>
+  </div>
+
+  <div class="low-stock-list" id="lowStockContainer">
+    <!-- Dynamic Items will appear here -->
+  </div>
+</div>

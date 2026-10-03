@@ -1,0 +1,194 @@
+<!-- Unified Top Bar containing Header, Navigation Tabs, and Print Button -->
+<header class="top-nav">
+    <div class="nav-brand">
+        <h1>🛒 Tun's Mart POS Docs</h1>
+    </div>
+    
+    <!-- Inline Navigation Tabs -->
+    <nav class="doc-tabs">
+        <a href="#overview" class="active">System Overview</a>
+        <a href="#roles">User Roles & Permissions</a>
+        <a href="#modules">Key Modules & Services</a>
+        <a href="#architecture">Backend & Data Architecture</a>
+        <a href="#installation">Deployment & Setup</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button class="btn-print" onclick="window.print()">🖨️ Print Manual</button>
+    </div>
+</header>
+
+<!-- Main Content Container -->
+<div class="doc-container">
+    <main class="content">
+        <header class="doc-header">
+            <h1>Retail Point of Sale (POS) System</h1>
+            <div class="subtitle">Complete Technical & Operational Manual (Node.js & Express Stack)</div>
+        </header>
+
+        <section id="overview">
+            <h2>System Overview</h2>
+            <p>Tun's Mart POS is a full-stack Web-Based Point of Sale system powered by a <strong>Node.js and Express backend</strong>. It provides retail operations with high-speed checkout capabilities, automated inventory tracking, real-time sales reporting, and secure role-based access control.</p>
+            <ul>
+                <li><strong>Backend Engine:</strong> Express HTTP REST API handling requests, JSON body parsing, cross-origin security, and centralized data persistence.</li>
+                <li><strong>Environment Configuration:</strong> Built-in support for environment variables (<code>.env</code>) via <code>dotenv</code> to manage secret keys (e.g., <code>GROQ_API_KEY</code>) and application ports.</li>
+                <li><strong>QR Code Receipts & Scanning:</strong> High-speed barcode decoding at checkout paired with instant Base64 dynamic QR receipt generation.</li>
+                <li><strong>Role-Based Access Control (RBAC):</strong> Server-side session/token verification enforcing access levels for Administrators, Managers, and Cashiers.</li>
+            </ul>
+        </section>
+
+        <section id="roles">
+            <h2>User Roles & Permissions</h2>
+            <p>The system enforces strict multi-tier permissions across UI views and REST API endpoints:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Page / Endpoint</th>
+                        <th>Admin</th>
+                        <th>Manager</th>
+                        <th>Sales (Cashier)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>POS Terminal (<code>/pc.html</code>)</strong></td>
+                        <td>Full Access</td>
+                        <td>Full Access</td>
+                        <td>Full Access</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dashboard (<code>/dashboard-home.html</code>)</strong></td>
+                        <td>Full Access</td>
+                        <td>Full Access</td>
+                        <td>Access Denied</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inventory API (<code>/api/inventory</code>)</strong></td>
+                        <td>Read / Write / Delete</td>
+                        <td>Read / Write / Delete</td>
+                        <td>Read-Only</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sales History (<code>/sales.html</code>)</strong></td>
+                        <td>View & Purge</td>
+                        <td>View Only</td>
+                        <td>View Own Session</td>
+                    </tr>
+                    <tr>
+                        <td><strong>User Accounts (<code>/accounts.html</code>)</strong></td>
+                        <td>Create, Edit, Delete</td>
+                        <td>View Only</td>
+                        <td>Restricted</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="modules">
+            <h2>Key Modules & Functions</h2>
+
+            <h3>1. Authentication & Security (<code>/login.html</code>)</h3>
+            <p>Users authenticate using credentials checked against the database. Upon verification, the Node.js server issues a secure session token.</p>
+            <ul>
+                <li><strong>Automatic Routing:</strong> Redirects cashiers straight to <code>/pc.html</code> while routing higher roles to <code>/dashboard-home.html</code>.</li>
+                <li><strong>Pre-Configured Test Accounts:</strong>
+                    <ul>
+                        <li><code>kyawkhaing@gmail.com</code> — Administrator</li>
+                        <li><code>chue@gmail.com</code> — Sales/Cashier</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>2. Cashier POS Terminal (<code>/pc.html</code>)</h3>
+            <p>Optimized primary terminal interface for high-speed cart operations.</p>
+            <ul>
+                <li><strong>Barcode Scanner Engine:</strong> Auto-detects fast input from USB/Bluetooth hardware scanners.</li>
+                <li><strong>Real-Time Stock Checking:</strong> Queries Express API for item quantities, throwing immediate visual feedback if stock limits are exceeded.</li>
+                <li><strong>Automated Tax & Discount Calculation:</strong> Standardized application of <strong>10% Discount</strong> and <strong>5% Commercial Tax</strong>.</li>
+                <li><strong>Receipt Output:</strong> On payment finalization, decrements inventory stock server-side and outputs a QR code link to <code>receipt.html</code>.</li>
+            </ul>
+
+            <h3>3. Executive Dashboard (<code>/dashboard-home.html</code>)</h3>
+            <p>Pulls live data to compute KPI cards: Total Sales Volume, Gross Profit, and Customer Traffic. Automatically highlights inventory items falling below <strong>10 units</strong>.</p>
+
+            <h3>4. Inventory Management (<code>/inventory.html</code>)</h3>
+            <p>Interface for CRUD operations on store stock. Includes real-time stock indicator tags:</p>
+            <ul>
+                <li>🟢 <strong>In Stock:</strong> > 5 units</li>
+                <li>🟡 <strong>Low Stock:</strong> 1–5 units</li>
+                <li>🔴 <strong>Out of Stock:</strong> 0 units</li>
+            </ul>
+
+            <h3>5. Account Management (<code>/accounts.html</code>)</h3>
+            <p>Admin portal to onboard new cashiers, update roles, or revoke user access.</p>
+
+            <h3>6. Digital Receipt Generator (<code>/receipt.html</code>)</h3>
+            <p>Renders printable and scannable transaction slips by decoding URL Base64 parameter payloads or querying transaction IDs via API.</p>
+        </section>
+
+        <section id="architecture">
+            <h2>Backend & Data Architecture</h2>
+            <p>The backend application structure uses standard Express middleware (<code>body-parser</code>, <code>encodeurl</code>, <code>content-disposition</code>, <code>cookie</code>) to process incoming JSON payloads and serve client assets.</p>
+
+            <h3>Key REST API Endpoints</h3>
+            <ul>
+                <li><code>POST /api/auth/login</code> — Validates user credentials and generates active session identifiers.</li>
+                <li><code>GET /api/inventory</code> — Returns array of products, prices, barcodes, and stock levels.</li>
+                <li><code>POST /api/inventory</code> — Adds or updates product records (Admin/Manager restricted).</li>
+                <li><code>POST /api/sales/checkout</code> — Commits cart items, calculates totals, updates inventory levels, and stores transaction records.</li>
+                <li><code>GET /api/sales/history</code> — Fetches historical sales receipts for analytics.</li>
+            </ul>
+
+            <h3>Data Schemas / Models</h3>
+            <ul>
+                <li><code>systemUsers</code>: Stores <code>id</code>, <code>email</code>, <code>passwordHash</code>, <code>role</code>, and <code>createdAt</code>.</li>
+                <li><code>myInventory</code>: Stores <code>barcode</code>, <code>name</code>, <code>price</code>, <code>stockQuantity</code>, and <code>category</code>.</li>
+                <li><code>salesHistory</code>: Stores <code>transactionId</code>, <code>items</code>, <code>discountTotal</code>, <code>taxTotal</code>, <code>grandTotal</code>, <code>paymentMethod</code>, and <code>timestamp</code>.</li>
+            </ul>
+        </section>
+
+        <section id="installation">
+            <h2>Deployment & Setup Instructions</h2>
+
+            <h3>1. Environment Configuration</h3>
+            <p>Create a <code>.env</code> file in the root project directory with the following variables:</p>
+            <pre><code>PORT=3000
+GROQ_API_KEY="your key"</code></pre>
+            <h3>2. Tunneling & Port Forwarding Configuration</h3>
+            <p>To support public deployment testing, dynamic QR receipts, or remote access, expose your local backend server using VS Code Port Forwarding / Dev Tunnels. Set the base dynamic URL dynamically inside your receipt payload logic:</p>
+            <pre><code>let baseURL = "https://1w29xn1x-52649.inc1.devtunnels.ms/";
+let receiptURL = baseURL + "/receipt.html?data=" + encodedReceipt;</code></pre>
+
+            <h3>3. Running the Server</h3>
+            <p>Install package dependencies and start the Node server:</p>
+            <pre><code>npm install
+npm start</code></pre>
+            <p>Access the app in your browser at <code>http://localhost:3000</code> or via your active forwarded port URL.</p>
+        </section>
+    </main>
+</div>
+
+<script>
+    // Active tab highlight watcher on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabs = document.querySelectorAll('.doc-tabs a');
+        const sections = document.querySelectorAll('main section');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const currentId = entry.target.getAttribute('id');
+                    tabs.forEach(tab => {
+                        if (tab.getAttribute('href') === `#${currentId}`) {
+                            tab.classList.add('active');
+                        } else {
+                            tab.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach(section => observer.observe(section));
+    });
+</script>

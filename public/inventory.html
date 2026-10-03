@@ -1,0 +1,54 @@
+<div>
+  <div class="container">
+    <h2>Items & Inventory</h2>
+
+    <div class="top-search-bar">
+      <div class="search-inputs">
+        <input
+          type="text"
+          id="searchName"
+          placeholder="Search by Name"
+          oninput="filterTable()"
+        />
+        <input
+          type="text"
+          id="searchCategory"
+          placeholder="Search by Category"
+          oninput="filterTable()"
+        />
+      </div>
+    </div>
+
+    <div class="add-form">
+      <h3>Add New Product</h3>
+      <div class="add-form-grid">
+        <!-- 1. Product Name Input -->
+        <input type="text" id="newName" placeholder="Name" />
+        
+        <!-- 2. Image File Choose Input -->
+        <div class="custom-file-container">
+          <input type="file" id="newImageFile" accept="image/*" />
+          <button type="button" class="clear-file-btn" onclick="clearSelectedFile()">✕</button>
+        </div>
+
+        <!-- 3. Other Inputs -->
+        <input type="text" id="newBarcode" placeholder="Barcode" />
+        <input type="text" id="newCategory" placeholder="Category" />
+        <input type="number" id="newQuantity" placeholder="Quantity" />
+        <input type="number" id="newOriginalPrice" placeholder="Original Price" />
+        <input type="number" id="newPrice" placeholder="Price" />
+      </div>
+      
+      <div class="btn-container">
+        <button class="add-btn" onclick="addItem()">+ Add Product</button>
+      </div>
+    </div>
+
+    <!-- Dynamic Category Tabs Container -->
+    <div id="categoryTabs" class="tabs-container"></div>
+
+    <!-- Dynamic Category Tables Container -->
+    <div id="categoryTablesContainer"></div>
+
+  </div>
+</div>
